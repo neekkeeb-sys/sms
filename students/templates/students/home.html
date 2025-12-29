@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>students</title>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h3>Notices</h3>
+    <ul>
+        {% for n in notices %}
+        <li>{{ n.message }} — {{ n.date_created }}</li>
+        {% empty %}<li>No notices yet.</li>{% endfor %}
+    </ul>
+
+    <h3>Students</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.roll }}</td>
+                <td>{{ s.email }}</td>
+            </tr>
+            {% empty %}<tr>
+                <td colspan="3">No students</td>
+            </tr>{% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Attendance</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Attended</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in attendance %}
+            <tr>
+                <td>{{ a.student.name }}</td>
+                <td>{{ a.lectures_attended }}</td>
+                <td>{{ a.total_lectures }}</td>
+            </tr>
+            {% empty %}<tr>
+                <td colspan="3">No attendance</td>
+            </tr>{% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Marks</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Physics</th>
+                <th>Chemistry</th>
+                <th>Maths</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in marks %}
+            <tr>
+                <td>{{ m.student.name }}</td>
+                <td>{{ m.physics }}</td>
+                <td>{{ m.chemistry }}</td>
+                <td>{{ m.maths }}</td>
+            </tr>
+            {% empty %}<tr>
+                <td colspan="4">No marks</td>
+            </tr>{% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+
+</body>
+
+</html>

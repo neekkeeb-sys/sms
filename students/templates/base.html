@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>School Management system</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Dashboard</a>
+        <a class="nav-link text-light" href="{% url 'add_student' %}">Add Student</a>
+        <a class="nav-link text-light" href="{% url 'add_attendance' %}">Add Attendance</a>
+        <a class="nav-link text-light" href="{% url 'add_marks' %}">Add Marks</a>
+        <a class="nav-link text-light" href="{% url 'add_notice' %}">Add Notice</a>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
