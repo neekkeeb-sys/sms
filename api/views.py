@@ -4,5 +4,5 @@ from rest_framework.response import Response
 @api_view(['GET'])
 def test_api(request):
     return Response({
-        "message": "Hello, my name is nigita balami. this is my first Django API"
+        "message": "Hello, my name is nigita balami. this is my first Django  project API"
     })
